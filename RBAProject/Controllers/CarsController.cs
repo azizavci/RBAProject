@@ -11,8 +11,9 @@ namespace RBAProject.Controllers
 {
     public class CarsController : Controller
     {
-        private readonly ModelContext _context;
+        MultipleModels multipleModels = new MultipleModels();
 
+        private readonly ModelContext _context;
         public CarsController(ModelContext context)
         {
             _context = context;
@@ -24,6 +25,16 @@ namespace RBAProject.Controllers
             var modelContext = _context.Cars.Include(c => c.Brand).Include(c => c.Color).Include(c => c.Model);
             return View(await modelContext.ToListAsync());
         }
+
+
+        public IActionResult GetDropdown()
+        {
+            multipleModels.GetBrands = new SelectList(_context.Brands, "Id", "Brandname");
+            multipleModels.GetModels = new SelectList(_context.Models, "Id", "Brandid", "Modelname");
+
+            return View(multipleModels);
+        }
+
 
         // GET: Cars/Details/5
         public async Task<IActionResult> Details(decimal? id)
@@ -47,13 +58,21 @@ namespace RBAProject.Controllers
         }
 
         // GET: Cars/Create
-        public IActionResult Create()
+        public IActionResult Create(decimal brandId)
         {
             ViewData["Brandid"] = new SelectList(_context.Brands, "Id", "Id");
             ViewData["Colorid"] = new SelectList(_context.Colors, "Id", "Id");
             ViewData["Modelid"] = new SelectList(_context.Models, "Id", "Id");
+
+            //ViewData["BrandName"] = new SelectList(_context.Brands, "Brandname", "Brandname");
+            //ViewData["ModelName"] = new SelectList(_context.Models.Where(c => c.Brand.Id ==brandId ), "Id", "Modelname");
+            //ViewData["ColorName"] = new SelectList(_context.Colors, "Colorname", "Colorname");
+
+
             return View();
         }
+
+
 
         // POST: Cars/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
@@ -68,9 +87,12 @@ namespace RBAProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            //ViewData["BrandName"] = new SelectList(_context.Brands, "Brandname", "Brandname");
+
             ViewData["Brandid"] = new SelectList(_context.Brands, "Id", "Id", car.Brandid);
             ViewData["Colorid"] = new SelectList(_context.Colors, "Id", "Id", car.Colorid);
             ViewData["Modelid"] = new SelectList(_context.Models, "Id", "Id", car.Modelid);
+
             return View(car);
         }
 
@@ -167,5 +189,7 @@ namespace RBAProject.Controllers
         {
             return _context.Cars.Any(e => e.Id == id);
         }
+
+
     }
 }

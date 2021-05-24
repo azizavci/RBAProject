@@ -1,8 +1,59 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IEnumerable<RBAProject.Models.Car>
+
+@{ ViewData["Title"] = "Ana Sayfa"; }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Hoşgeldiniz</h1>
 </div>
+
+
+<style>
+    .card {
+        margin: 15px;
+    }
+
+        .card:hover {
+            box-shadow: -1px 9px 40px -12px #808080;
+        }
+</style>
+
+<div class="row">
+
+    @foreach (var car in Model)
+    {
+<div class="card" style="width: 18rem;">
+    <img src="" class="card-img-top" alt="">
+    <div class="card-body">
+        <h5 class="card-title">@Html.DisplayFor(modelItem => car.Brand.Brandname)</h5>
+        <p class="card-text">@Html.DisplayFor(modelItem => car.Model.Modelname)</p>
+        <p class="card-text">@Html.DisplayFor(modelItem => car.Dailyprice)</p>
+        <a asp-controller="CarDetails" asp-action="Index" asp-route-id="@car.Id" class="btn btn-primary">DETAYI GÖR</a>
+    </div>
+</div>}
+</div>
+
+
+<script src="~/jquery/jquery.js"></script>
+<script type="text/javascript">
+    $('.card').hover(
+
+        function () {
+            $(this).animate({
+
+                marginTop: "-=1%",
+                marginBottom: "+1=%"
+
+            }, 200)
+        },
+
+        function () {
+            $(this).animate({
+
+                marginTop: "+=1%",
+                marginBottom: "-1=%"
+
+            })
+        },
+    )
+
+</script>

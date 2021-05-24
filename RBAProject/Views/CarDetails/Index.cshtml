@@ -1,0 +1,42 @@
+﻿@model RBAProject.Models.Car
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center">Araç Detay Bilgisi</h1>
+
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <div class="table-responsive" style="overflow:hidden;">
+                <table class="table">
+                    <tr>
+                        <th>Araç Markası</th>
+                        <th>Araç Modeli</th>
+                        <th>Araç Plakası</th>
+                        <th>Araç Rengi</th>
+                        <th>Günlük Fiyat</th>
+                        <th>Araç Durumu</th>
+
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayFor(model => model.Brand.Brandname) </td>
+                        <td>@Html.DisplayFor(model => model.Model.Modelname) </td>
+                        <td>@Html.DisplayFor(model => model.Plate) </td>
+                        <td>@Html.DisplayFor(model => model.Color.Colorname) </td>
+                        <td>@Html.DisplayFor(model => model.Dailyprice) </td>
+                        <td>@Html.DisplayFor(model => model.Status) </td>
+                    </tr>
+
+                </table>
+                <div style="text-align:right">
+                    <a asp-controller="Rentals" asp-action="Index" class="btn btn-primary">REZERVASYON YAP</a>
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">ANASAYFAYA DÖN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

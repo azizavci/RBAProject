@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RBAProject.Models;
 using System;
@@ -12,15 +13,19 @@ namespace RBAProject.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ModelContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, ModelContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            var modelContext = _context.Cars.Include(c => c.Brand).Include(c => c.Color).Include(c => c.Model);
+            return View(await modelContext.ToListAsync());
         }
 
         public IActionResult Privacy()

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 style="text-align:center">Details</h1>
+<h1 style="text-align:center">Araç Detay Bilgisi</h1>
 
 <div class="col-md-12">
     <div class="card">
@@ -12,27 +12,28 @@
             <div class="table-responsive" style="overflow:hidden;">
                 <table class="table">
                     <tr>
-                        <th> @Html.DisplayNameFor(model => model.Status) </th>
-                        <th> @Html.DisplayNameFor(model => model.Plate)</th>
-                        <th> @Html.DisplayNameFor(model => model.Dailyprice)</th>
-                        <th> @Html.DisplayNameFor(model => model.Brand)</th>
-                        <th> @Html.DisplayNameFor(model => model.Color)</th>
-                        <th> @Html.DisplayNameFor(model => model.Model)</th>
+                        <th>Araç Markası</th>
+                        <th>Araç Modeli</th>
+                        <th>Araç Plakası</th>
+                        <th>Araç Rengi</th>
+                        <th>Günlük Fiyat</th>
+                        <th>Araç Durumu</th>
 
                     </tr>
                     <tr>
-                        <td>@Html.DisplayFor(model => model.Status) </td>
+                        <td>@Html.DisplayFor(model => model.Brand.Brandname) </td>
+                        <td>@Html.DisplayFor(model => model.Model.Modelname) </td>
                         <td>@Html.DisplayFor(model => model.Plate) </td>
+                        <td>@Html.DisplayFor(model => model.Color.Colorname) </td>
                         <td>@Html.DisplayFor(model => model.Dailyprice) </td>
-                        <td>@Html.DisplayFor(model => model.Brand.Id) </td>
-                        <td>@Html.DisplayFor(model => model.Color.Id) </td>
-                        <td>@Html.DisplayFor(model => model.Model.Id) </td>
+                        <td>@Html.DisplayFor(model => model.Status) </td>
                     </tr>
+
 
                 </table>
                 <div style="text-align:right">
-                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-                    <a asp-action="Index">Back to List</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Güncelle</a> |
+                    <a asp-action="Index">Listeye Geri Dön</a>
                 </div>
             </div>
         </div>

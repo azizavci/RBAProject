@@ -18,7 +18,7 @@ namespace RBAProject.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal Id { get; set; }
-        public decimal Brandid { get; set; }
+        public decimal? Brandid { get; set; }
         public decimal Modelid { get; set; }
         public decimal Colorid { get; set; }
         public string Status { get; set; }
@@ -31,5 +31,6 @@ namespace RBAProject.Models
         public virtual ICollection<Deletedrentalhistory> Deletedrentalhistories { get; set; }
         public virtual ICollection<Rentalhistory> Rentalhistories { get; set; }
         public virtual ICollection<Rental> Rentals { get; set; }
+        public virtual ICollection<Rental2> Rentals2 { get; set; }
     }
 }

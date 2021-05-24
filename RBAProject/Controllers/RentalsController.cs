@@ -48,8 +48,8 @@ namespace RBAProject.Controllers
         // GET: Rentals/Create
         public IActionResult Create()
         {
-            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Status");
-            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Birthplace");
+            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Id");
+            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -66,8 +66,8 @@ namespace RBAProject.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Status", rental.Carid);
-            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Birthplace", rental.Userid);
+            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Id", rental.Carid);
+            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Id", rental.Userid);
             return View(rental);
         }
 
@@ -84,8 +84,8 @@ namespace RBAProject.Controllers
             {
                 return NotFound();
             }
-            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Status", rental.Carid);
-            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Birthplace", rental.Userid);
+            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Carid", rental.Carid);
+            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Userid", rental.Userid);
             return View(rental);
         }
 
@@ -121,8 +121,8 @@ namespace RBAProject.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Status", rental.Carid);
-            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Birthplace", rental.Userid);
+            ViewData["Carid"] = new SelectList(_context.Cars, "Id", "Id", rental.Carid);
+            ViewData["Userid"] = new SelectList(_context.Users, "Id", "Id", rental.Userid);
             return View(rental);
         }
 

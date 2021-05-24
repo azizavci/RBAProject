@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<RBAProject.Models.Car>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <h1>Index</h1>
 
@@ -14,60 +12,69 @@
             </p>
         </div>
         <div class="card-body">
-            <div class="table-responsive"  style="overflow:hidden;">
+            <div class="table-responsive" style="overflow:hidden;">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Status)
+                                ARAÇ DURUMU
+                                @*@Html.DisplayNameFor(model => model.Status)*@
+
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Plate)
+                                PLAKA
+                                @*@Html.DisplayNameFor(model => model.Plate)*@
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Dailyprice)
+                                GÜNLÜK FİYAT
+                                @*@Html.DisplayNameFor(model => model.DailyPrice)*@
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Brand)
+                                MARKA
+                                @*@Html.DisplayNameFor(model => model.Brand)*@
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Color)
+                                MODEL
+                                @*@Html.DisplayNameFor(model => model.Color)*@
                             </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.Model)
+                                RENK
+                                @*@Html.DisplayNameFor(model => model.Model)*@
                             </th>
                             <th></th>
                         </tr>
                     </thead>
+
                     <tbody>
-                        @foreach (var item in Model)
+                        @foreach (var car in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Plate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Dailyprice)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Brand.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Color.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Model.Id)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                </td>
-                            </tr>
-                        }
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Plate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Dailyprice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Brand.Brandname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Color.Colorname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => car.Model.Modelname)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@car.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@car.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@car.Id">Delete</a>
+                </td>
+            </tr>
+}
                     </tbody>
                 </table>
             </div>

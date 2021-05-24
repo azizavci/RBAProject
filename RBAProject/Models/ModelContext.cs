@@ -18,6 +18,7 @@ namespace RBAProject.Models
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
         public virtual DbSet<Card> Cards { get; set; }
@@ -26,6 +27,7 @@ namespace RBAProject.Models
         public virtual DbSet<Deletedrentalhistory> Deletedrentalhistories { get; set; }
         public virtual DbSet<Model> Models { get; set; }
         public virtual DbSet<Rental> Rentals { get; set; }
+        public virtual DbSet<Rental2> Rentals2 { get; set; }
         public virtual DbSet<Rentalhistory> Rentalhistories { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -124,12 +126,9 @@ namespace RBAProject.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_COLORID");
 
-                entity.HasOne(d => d.Model)
-                    .WithMany(p => p.Cars)
-                    .HasForeignKey(d => d.Modelid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_MODELID");
-            });
+
+                
+            });     
 
             modelBuilder.Entity<Card>(entity =>
             {
@@ -430,6 +429,40 @@ namespace RBAProject.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_CONTACTID");
             });
+
+            modelBuilder.Entity<Admin>(entity =>
+            {
+                entity.ToTable("ADMIN");
+
+                entity.Property(e => e.Id)
+                    .HasColumnType("NUMBER")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("ID")
+                    .HasDefaultValueSql("\"SYSTEM\".\"ISEQ$$_74201\".nextval ");
+
+                entity.Property(e => e.Email)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("EMAIL");
+
+                entity.Property(e => e.Name)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("NAME");
+
+                entity.Property(e => e.Password)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("PASSWORD");
+
+                entity.Property(e => e.Surname)
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasColumnName("SURNAME");
+            });
+
+
+            //DTO 
 
 
 
