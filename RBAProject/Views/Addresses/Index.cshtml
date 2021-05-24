@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-header">
             <p>
-                <a asp-action="Create">Create New</a>
+                <a asp-action="Create"></a>
             </p>
         </div>
         <div class="card-body">
@@ -21,11 +21,9 @@
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.City)
-                            </th>
+Şehir :                            </th>
                             <th>
-                                @Html.DisplayNameFor(model => model.District)
-                            </th>
+İlçe :                            </th>
                             <th></th>
                         </tr>
                     </thead>
@@ -40,9 +38,9 @@
                     @Html.DisplayFor(modelItem => item.District)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Güncelle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
                 </td>
             </tr>}
                     </tbody>

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1 style="text-align:center">Details</h1>
+<h1 style="text-align:center">Detaylar</h1>
 
 <div class="col-md-12">
     <div class="card">
@@ -12,8 +12,7 @@
             <div class="table-responsive" style="overflow:hidden;">
                 <table class="table">
                     <tr>
-                        <th>  @Html.DisplayNameFor(model => model.Brandname)</th>
-
+Marka Adı :
                     </tr>
                     <tr>
                         <td>
@@ -22,8 +21,8 @@
 
                 </table>
                 <div style="text-align:right">
-                    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-                    <a asp-action="Index">Back to List</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Id">Güncelle</a> |
+                    <a asp-action="Index">Listeye Geri Dön</a>
                 </div>
             </div>
         </div>

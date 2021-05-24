@@ -1,51 +1,44 @@
 ﻿@model RBAProject.Models.Rentalhistory
 
-@{
-    ViewData["Title"] = "Delete";
-}
+@{ ViewData["Title"] = "Delete"; }
 
-<h1>Delete</h1>
+<h1>Sil</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Silme işlemini yapmak istediğinize emin misiniz?</h3>
 <div>
-    <h4>Rentalhistory</h4>
+    <h4>Kiralama Geçmişi</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rentdate)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">
+Kiralama Tarihi :        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Rentdate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Returndate)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">
+Teslimat Tarihi :        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Returndate)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Totalprice)
-        </dt>
-        <dd class = "col-sm-10">
+        <dt class="col-sm-2">
+Toplam Tutar :        </dt>
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Totalprice)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Car)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Car.Status)
-        </dd class>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.User)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.User.Birthplace)
-        </dd class>
+        <dt class="col-sm-2">
+Araç Id :        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Car.Id)
+        </dd>
+        <dt class="col-sm-2">
+Kullanıcı Id :        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.User.Id)
+        </dd>
     </dl>
-    
+
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Listeye Geri Dön</a>
     </form>
 </div>

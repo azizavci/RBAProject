@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<RBAProject.Models.Brand>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
 <h1>Index</h1>
 
@@ -10,16 +8,16 @@
     <div class="card">
         <div class="card-header">
             <p>
-                <a asp-action="Create">Create New</a>
+                <a asp-action="Create">Oluştur</a>
             </p>
         </div>
         <div class="card-body">
-            <div class="table-responsive"  style="overflow:hidden;">
+            <div class="table-responsive" style="overflow:hidden;">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>
-                                @Html.DisplayNameFor(model => model.Brandname)
+                                Marka Adı
                             </th>
                             <th></th>
                         </tr>
@@ -27,17 +25,16 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Brandname)
-                                </td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                                </td>
-                            </tr>
-                        }
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brandname)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Güncelle</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Detaylar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Sil</a>
+                </td>
+            </tr>}
                     </tbody>
                 </table>
             </div>

@@ -12,8 +12,8 @@
             <div class="table-responsive" style="overflow:hidden;">
                 <table class="table">
                     <tr>
-                        <th> @Html.DisplayNameFor(model => model.City)</th>
-                        <th>@Html.DisplayNameFor(model => model.District)</th>
+                        <th>Şehir</th>
+                        <th>İlçe</th>
                     </tr>
                     <tr>
                         <td> @Html.DisplayFor(model => model.City)</td>
@@ -22,8 +22,8 @@
                 </table>
                 <div style="text-align:right">
                     <div style="text-align:right">
-                        <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-                        <a asp-action="Index">Back to List</a>
+                        <a asp-action="Edit" asp-route-id="@Model.Id">Güncelle</a> |
+                        <a asp-action="Index">Listeye Geri Dön</a>
                     </div>
                 </div>
             </div>

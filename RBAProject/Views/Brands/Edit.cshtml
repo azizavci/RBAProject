@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1 style="text-align:center">Edit Brand</h1>
+<h1 style="text-align:center">Güncelle</h1>
 
 <div class="col-md-12">
     <div class="card">
@@ -13,15 +13,15 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Id" />
                 <div class="form-group">
-                    <label asp-for="Brandname" class="control-label"></label>
+                    <label asp-for="Brandname" class="control-label">Marka Adı</label>
                     <input asp-for="Brandname" class="form-control" />
                     <span asp-validation-for="Brandname" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Save" class="btn btn-primary" />
+                    <input type="submit" value="Kaydet" class="btn btn-primary" />
                 </div>
                 <div style="text-align:right">
-                    <a asp-action="Index">Back to List</a>
+                    <a asp-action="Index">Listeye Geri Dön</a>
                 </div>
 
             </form>
